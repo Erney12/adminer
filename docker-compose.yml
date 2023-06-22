@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=erneyp
+      - POSTGRES_PASSWORD=erneyp
+      - POSTGRES_DB=basedatos_postgres
+    ports:
+      - 5432:5432
+
+  mysql:
+    image: mysql:latest
+    #command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=erney
+      - MYSQL_DATABASE=basedatos_mysql
+      - MYSQL_USER=erneym
+      - MYSQL_PASSWORD=erneym
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - 8080:8080
